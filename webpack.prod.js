@@ -8,7 +8,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.(?:js|mjs|cjs)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|src\/tests/,
         use: {
           loader: "babel-loader",
           options: {
