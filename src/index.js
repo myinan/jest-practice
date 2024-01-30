@@ -58,4 +58,39 @@ function caesarCipher(text, shiftF) {
   return shiftedText.join("");
 }
 
-export { capitalize, reverseString, Calculator, caesarCipher };
+// An analyzeArray function that takes an array of numbers,
+// and returns an object with the following properties: average, min, max, and length.
+
+// Helper sort function
+function bubbleSort(array) {
+  const arr = [...array];
+  const len = arr.length;
+  for (let i = 0; i < len - 1; i += 1) {
+    for (let j = 0; j < len - 1 - i; j += 1) {
+      // Swap if the element found is greater than the next element
+      if (arr[j] > arr[j + 1]) {
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+function analyzeArray(arr) {
+  const total = arr.reduce((acc, current) => acc + current, 0);
+  const avg = total / arr.length;
+  const sortedArr = bubbleSort(arr);
+
+  const obj = {
+    average: avg.toFixed(2),
+    min: sortedArr[0],
+    max: sortedArr[sortedArr.length - 1],
+    length: sortedArr.length,
+  };
+
+  return obj;
+}
+
+export { capitalize, reverseString, Calculator, caesarCipher, analyzeArray };

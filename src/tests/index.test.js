@@ -1,4 +1,10 @@
-import { capitalize, reverseString, Calculator, caesarCipher } from "../index";
+import {
+  capitalize,
+  reverseString,
+  Calculator,
+  caesarCipher,
+  analyzeArray,
+} from "../index";
 
 test("passed in world is capitalized", () => {
   expect(capitalize("test")).toMatch("Test");
@@ -26,4 +32,13 @@ test("Multiply", () => {
 
 test("Ciphered input text correctly", () => {
   expect(caesarCipher("Hello, World!", 10)).toBe("Rovvy, Gybvn!");
+});
+
+test("Analyzed input arr correctly", () => {
+  expect(analyzeArray([3, 10, 4, 12, 7, 20])).toEqual({
+    average: "9.33",
+    min: 3,
+    max: 20,
+    length: 6,
+  });
 });
